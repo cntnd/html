@@ -15,8 +15,6 @@ if (empty($lines)){
 }
 $own_js = (bool) "CMS_VALUE[3]";
 
-$uuid = rand();
-
 $text = "CMS_HTML[1]";
 
 // includes
@@ -31,7 +29,7 @@ if ($editmode){
 
 $tpl = cSmartyFrontend::getInstance();
 $tpl->assign('truncate', $truncate);
-$tpl->assign('uuid', $uuid);
+$tpl->assign('uuid', 'idart'.$idart);
 $tpl->assign('text', $text);
 $tpl->display('default.html');
 
