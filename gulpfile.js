@@ -15,29 +15,29 @@ gulp.task('sass', function() {
     return gulp.src('src/scss/**/*.scss')
         .pipe(sass())
         .pipe(minify({
-          minify: true,
-          minifyCSS: true,
-          getKeptComment: function (content, filePath) {
-              var m = content.match(/\/\*![\s\S]*?\*\//img);
-              return m && m.join('\n') + '\n' || '';
-          }
+            minify: true,
+            minifyCSS: true,
+            getKeptComment: function (content, filePath) {
+                var m = content.match(/\/\*![\s\S]*?\*\//img);
+                return m && m.join('\n') + '\n' || '';
+            }
         }))
         .pipe(gulp.dest("src/css/"));
 });
 
-gulp.task('xampp', function () {
-   return gulp.src(['src/**/*','!src/scss*'])
-          .pipe(gulp.dest('modules/'+pkg.name));
+gulp.task('zip', function() {
+    return gulp.src(['src/**/*','!src/scss*'])
+        .pipe(zip(pkg.name+'.zip'))
+        .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('zip', function() {
-  return gulp.src(['src/**/*','!src/scss*'])
-  		.pipe(zip(pkg.name+'.zip'))
-  		.pipe(gulp.dest('dist'));
+gulp.task('xampp', function () {
+    return gulp.src(['src/**/*','!src/scss*'])
+        .pipe(gulp.dest('modules/'+pkg.name));
 });
 
 gulp.task('clean', function () {
-  return del(['dist/**/*','modules/**/*']);
+    return del(['dist/**/*','modules/**/*']);
 });
 
 // creates info.xml

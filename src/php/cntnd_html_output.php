@@ -8,14 +8,14 @@ defined('CON_FRAMEWORK') || die('Illegal call: Missing framework initialization 
 $editmode = cRegistry::isBackendEditMode();
 
 // input/vars
+$text = "CMS_HTML[1]";
 $truncate = (bool) "CMS_VALUE[1]";
 $lines = (int) "CMS_VALUE[2]";
 if (empty($lines)){
   $lines = 5;
 }
 $own_js = (bool) "CMS_VALUE[3]";
-
-$text = "CMS_HTML[1]";
+$uuid = 'idart-'.$idart.'-'.rand();
 
 // includes
 if (!$editmode && $truncate){
@@ -29,7 +29,7 @@ if ($editmode){
 
 $tpl = cSmartyFrontend::getInstance();
 $tpl->assign('truncate', $truncate);
-$tpl->assign('uuid', 'idart'.$idart);
+$tpl->assign('uuid', $uuid);
 $tpl->assign('text', $text);
 $tpl->display('default.html');
 
@@ -40,7 +40,7 @@ if (!$editmode && $truncate){
 ?>
 <script>
 $(document).ready(function() {
-  $('.truncate').trunk8({
+  $('#truncate-<?= $uuid ?>').trunk8({
      lines: <?= $lines ?>,
      parseHTML: true,
      tooltip: false,

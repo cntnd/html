@@ -8,7 +8,6 @@ $lines = (int) "CMS_VALUE[2]";
 $own_js = (bool) "CMS_VALUE[3]";
 
 // includes
-cInclude('module', 'includes/style.cntnd_html_input.php');
 
 ?>
 <div class="form-vertical">
