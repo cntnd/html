@@ -2,3 +2,5 @@ MODULE=HTML
 TRUNCATE=Text kürzen aktivieren
 TRUNCATE_LINES=Anzahl Zeilen
 TRUNCATE_OWNJS=Eigene JavaScript logik für "Mehr"/"Schliessen"
+MORE=Mehr
+LESS=Schliessen

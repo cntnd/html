@@ -31,6 +31,8 @@ $tpl = cSmartyFrontend::getInstance();
 $tpl->assign('truncate', $truncate);
 $tpl->assign('uuid', $uuid);
 $tpl->assign('text', $text);
+$tpl->assign('more', mi18n("MORE"));
+$tpl->assign('less', mi18n("LESS"));
 $tpl->display('default.html');
 
 if ($editmode){
