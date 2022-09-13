@@ -1,9 +1,9 @@
 <!-- cntnd_html/template/default.html -->
-{if $truncate}
+{if $truncate AND $text!=""}
 <div class="truncate" id="truncate-{$uuid}">
 {/if}
 {$text}
-{if $truncate}
+{if $truncate AND $text!=""}
 </div>
 <a target="{$uuid}" class="read-more">{$more}</a>
 <a target="{$uuid}" class="read-less" style="display: none;">{$less}</a>
