@@ -1,5 +1,6 @@
 <?php
 // cntnd_html_output
+$cntnd_module = "cntnd_html";
 
 // assert framework initialization
 defined('CON_FRAMEWORK') || die('Illegal call: Missing framework initialization - request aborted.');
@@ -18,13 +19,16 @@ $own_js = (bool) "CMS_VALUE[3]";
 $uuid = 'idart-'.$idart.'-'.rand();
 
 // includes
+if ($editmode) {
+    cInclude('module', 'includes/style.cntnd_html.php');
+}
 if (!$editmode && $truncate){
 	cInclude('module', 'includes/script.cntnd_html_output.php');
 }
 
 // module
 if ($editmode){
-	echo '<div class="content_box"><label class="content_type_label">'.mi18n("MODULE").'</label>';
+    echo '<span class="module_box"><label class="module_label">'.mi18n("MODULE").'</label></span>';
 }
 
 $tpl = cSmartyFrontend::getInstance();
@@ -35,9 +39,6 @@ $tpl->assign('more', mi18n("MORE"));
 $tpl->assign('less', mi18n("LESS"));
 $tpl->display('default.html');
 
-if ($editmode){
-  echo '</div>';
-}
 if (!$editmode && $truncate){
 ?>
 <script>

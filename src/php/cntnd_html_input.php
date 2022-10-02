@@ -1,5 +1,6 @@
 ?><?php
 // cntnd_html_input
+$cntnd_module = "cntnd_html";
 
 // input/vars
 $uuid = rand();
@@ -8,7 +9,7 @@ $lines = (int) "CMS_VALUE[2]";
 $own_js = (bool) "CMS_VALUE[3]";
 
 // includes
-
+cInclude('module', 'includes/style.cntnd_html.php');
 ?>
 <div class="form-vertical">
   <div class="form-check form-check-inline">
